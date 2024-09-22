@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Día de las Flores Amarillas</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #bde0fe, #f0f8ff);
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #ffeb3b;
+            font-size: 3em;
+            margin-top: 50px;
+        }
+
+        p {
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .instruction {
+            font-size: 2em; /* Tamaño aumentado */
+            color: #ffeb3b;
+            margin-top: 20px;
+            padding: 10px 20px; /* Espaciado interno */
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semi-transparente */
+            border: 2px solid #ffeb3b; /* Borde amarillo */
+            border-radius: 10px; /* Bordes redondeados */
+            display: inline-block; /* Ajuste de ancho */
+        }
+
+        .flower {
+            background-image: url('https://cuarteldelmetal.com/wp-content/uploads/2023/09/Captura-de-Pantalla-2023-09-20-a-las-20.46.18.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            position: absolute;
+            width: 150px; /* Tamaño aumentado */
+            height: 150px; /* Tamaño aumentado */
+            cursor: pointer;
+            transition: transform 0.5s;
+        }
+
+        .flower:hover {
+            transform: scale(1.2);
+        }
+
+        #flower1 { top: 80px; left: 10%; }
+        #flower2 { top: 100px; right: 10%; }
+        #flower3 { top: 220px; left: 20%; }
+        #flower4 { top: 220px; right: 20%; }
+        #flower5 { top: 380px; left: 10%; }
+        #flower6 { top: 380px; right: 10%; }
+        #flower7 { top: 540px; left: 25%; }
+        #flower8 { top: 540px; right: 25%; }
+
+        .photo-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .photo-modal img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #444;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .play-button {
+            background-color: #ffeb3b;
+            color: #444;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.5em;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+        }
+
+        .play-button-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Feliz Día de las Flores Amarillas, Mi Amor</h1>
+    <p>Eres el sol que ilumina mi vida, ¡hoy y siempre!</p>
+    <p class="instruction">¡Toca cada flor!</p>
+
+    <div id="flower1" class="flower" onclick="showPhoto('photo1')"></div>
+    <div id="flower2" class="flower" onclick="showPhoto('photo2')"></div>
+    <div id="flower3" class="flower" onclick="showPhoto('photo3')"></div>
+    <div id="flower4" class="flower" onclick="showPhoto('photo4')"></div>
+    <div id="flower5" class="flower" onclick="showPhoto('photo5')"></div>
+    <div id="flower6" class="flower" onclick="showPhoto('photo6')"></div>
+    <div id="flower7" class="flower" onclick="showPhoto('photo7')"></div>
+    <div id="flower8" class="flower" onclick="showPhoto('photo8')"></div>
+
+    <div id="photo-modal" class="photo-modal">
+        <img id="modal-img" src="" alt="Foto de nosotros">
+        <button class="close-btn" onclick="closePhoto()">Cerrar</button>
+    </div>
+
+    <div class="play-button-container">
+        <button class="play-button" onclick="playMusic()">REPRODUCEME</button>
+        <audio id="song" src="music/flores_audio.wav"></audio>
+    </div>
+
+    <script>
+        function showPhoto(photoId) {
+            const modal = document.getElementById('photo-modal');
+            const modalImg = document.getElementById('modal-img');
+            const photos = {
+                photo1: 'images/1.jpeg',
+                photo2: 'images/2.jpeg',
+                photo3: 'images/3.jpeg',
+                photo4: 'images/4.jpeg',
+                photo5: 'images/5.jpeg',
+                photo6: 'images/6.jpeg',
+                photo7: 'images/7.jpeg',
+                photo8: 'images/8.jpeg'
+            };
+            modalImg.src = photos[photoId];
+            modal.style.display = 'flex';
+        }
+
+        function closePhoto() {
+            document.getElementById('photo-modal').style.display = 'none';
+        }
+
+        function playMusic() {
+            const audio = document.getElementById('song');
+            audio.play();
+        }
+    </script>
+
+</body>
+</html>
